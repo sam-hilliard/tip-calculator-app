@@ -1,15 +1,12 @@
 import './App.css';
+import TipCalculator from '../TipCalculator/TipCalculator';
+import Attribution from '../Attribution/Attribution';
 
 function App() {
   return (
     <div className="App">
-
-      
-
-      <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" rel="noreferrer" target="_blank">Frontend Mentor</a>. 
-        Coded by <a href="https://sam-hilliard.github.io/">Your Name Here</a>.
-      </div>
+      <TipCalculator />
+      <Attribution />
     </div>
   );
 }
