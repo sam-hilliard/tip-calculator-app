@@ -1,10 +1,20 @@
 import React from 'react';
 
+import Input from '../Input/Input';
+import TipSelection from '../TipSelection/TipSelection';
+
+// icons
+import dollarIcon from '../../assets/images/icon-dollar.svg';
+import personIcon from '../../assets/images/icon-person.svg';
+
+
 export default function TipCalculator() {
   return (
     <div class="card split tip-calculator">
       <div class="tip-form-container">
-
+        <Input label="Bill" icon={dollarIcon} />
+        <TipSelection />
+        <Input label="Number of People" icon={personIcon} />
       </div>
       <div class="card card--accent tip-display-container">
 

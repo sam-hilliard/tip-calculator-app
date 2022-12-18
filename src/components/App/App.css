@@ -55,3 +55,42 @@ body {
 .tip-calculator {
     width: 100%;
 }
+
+/* component styles */
+
+.lbl {
+    color: var(--grayish-cyan);
+    font-size: 1rem;
+}
+
+
+/* input */
+
+/* grid layout necessary for placing icon in input */
+.input-container {
+    display: grid;
+    grid-template-areas:
+        "label"
+        "input";
+}
+
+.input__lbl {
+    grid-area: label;
+}
+
+.input, .input__icon {
+    grid-area: input;
+    align-self: center;
+}
+
+.input__icon {
+    margin-left: 0.5rem;
+}
+
+.input {
+    border: none;
+    background-color: var(--very-light-grayish-cyan);
+    direction: rtl;
+    padding: 0 0.5rem;
+    color: var(--very-dark-cyan);
+}

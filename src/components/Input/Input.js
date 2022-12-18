@@ -12,11 +12,12 @@ export default function Input(props) {
 
     return (
         <div className="input-container">
-            <label className="lbl">{props.label}</label>
+            <label className="lbl input__lbl">{props.label}</label>
             <input className="input" 
                 onChange={handleChange} 
-                value={inputVal} 
+                value={inputVal}
             />
+            <img className="input__icon" src={props.icon} alt={props.iconAlt} />
         </div>
     )
 }
