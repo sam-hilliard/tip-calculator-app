@@ -12,6 +12,7 @@
     --strong-cyan: hsl(172, 67%, 45%);
 
     --br: 1rem;
+    --smooth-transition: 300ms ease-in-out;
 }
 
 /* typography */
@@ -22,6 +23,14 @@ body {
     font-weight: 700;
 
     background-color: var(--grayish-cyan);
+}
+
+.btn, .input {
+    font-size: 1.25rem;
+}
+
+.lbl {
+    font-size: 1rem;
 }
 
 /* general/utility styles */
@@ -66,7 +75,6 @@ body {
 
 .lbl {
     color: var(--grayish-cyan);
-    font-size: 1rem;
 }
 
 
@@ -97,7 +105,7 @@ body {
     border: none;
     background-color: var(--very-light-grayish-cyan);
     direction: rtl;
-    padding: 0 0.5rem;
+    padding: 0.5rem;
     color: var(--very-dark-cyan);
 }
 
@@ -106,6 +114,8 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+
+    padding: 1rem 0;
 }
 
 .btn {
@@ -114,4 +124,13 @@ body {
     background-color: var(--very-dark-cyan);
     border-radius: 0.25rem;
     padding: 0.25em 0;
+
+    transition: background-color var(--smooth-transition);
+}
+
+.btn:hover {
+    --darker: hsl(183, 100%, 10%);
+
+    cursor: pointer;
+    background-color: var(--darker);
 }
