@@ -43,6 +43,7 @@ body {
 
 .card--accent {
     background-color: var(--very-dark-cyan);
+    color: var(--white);
 }
 
 .split {
@@ -66,9 +67,10 @@ body {
     width: 100%;
 }
 
-.tip-form-container {
+.tip-form-container, .result-display-container {
     display: grid;
     gap: 1rem;
+    width: 100%;
 }
 
 /* tip calc component styles */
@@ -133,4 +135,38 @@ body {
 
     cursor: pointer;
     background-color: var(--darker);
+}
+
+.btn--light {
+    color: var(--very-dark-cyan);
+    background-color: var(--strong-cyan);
+}
+
+.btn--light:hover {
+    --darker-primary: hsl(172, 67%, 35%);
+    background-color: var(--darker-primary);
+}
+
+/* calculation results section */
+.results-display {
+    display: flex;
+    justify-content: space-between;
+}
+
+.results-display__lbl {
+    font-size: 1rem;
+}
+
+.results-display__sublbl {
+    font-size: 0.75rem;
+    color: var(--grayish-cyan);
+}
+
+.results-display__ammount {
+    font-size: 2rem;
+    color: var(--strong-cyan);
+}
+
+.reset-btn {
+    margin-top: 2rem;
 }
