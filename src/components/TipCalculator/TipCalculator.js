@@ -16,7 +16,7 @@ export default function TipCalculator() {
         <TipSelection />
         <Input label="Number of People" icon={personIcon} />
       </div>
-      <div class="card card--accent tip-display-container">
+      <div class="card card--accent result-display-container">
 
       </div>
     </div>

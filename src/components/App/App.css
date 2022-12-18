@@ -39,6 +39,7 @@ body {
 .split {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 
 /* app styles */
@@ -56,7 +57,12 @@ body {
     width: 100%;
 }
 
-/* component styles */
+.tip-form-container {
+    display: grid;
+    gap: 1rem;
+}
+
+/* tip calc component styles */
 
 .lbl {
     color: var(--grayish-cyan);
@@ -93,4 +99,19 @@ body {
     direction: rtl;
     padding: 0 0.5rem;
     color: var(--very-dark-cyan);
+}
+
+/* tip selection section */
+.tip-selection__btn-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+}
+
+.btn {
+    border: none;
+    color: var(--white);
+    background-color: var(--very-dark-cyan);
+    border-radius: 0.25rem;
+    padding: 0.25em 0;
 }
