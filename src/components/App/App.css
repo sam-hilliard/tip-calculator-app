@@ -10,6 +10,8 @@
 
     /* primary color */
     --strong-cyan: hsl(172, 67%, 45%);
+
+    --br: 1rem;
 }
 
 /* typography */
@@ -22,6 +24,25 @@ body {
     background-color: var(--grayish-cyan);
 }
 
+/* general/utility styles */
+
+.card {
+    background-color: var(--white);
+    padding: 1em;
+    border-radius: var(--br);
+}
+
+.card--accent {
+    background-color: var(--very-dark-cyan);
+}
+
+.split {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+/* app styles */
+
 .App {
     display: grid;
     justify-items: center;
@@ -30,4 +51,7 @@ body {
 }
 
 
-/* tip calculator card styles */
+/* tip calculator styles */
+.tip-calculator {
+    width: 100%;
+}
