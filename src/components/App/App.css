@@ -57,25 +57,28 @@ body {
     border-radius: var(--br-sharp);
 }
 
-/* app styles */
-
-.App {
-    display: grid;
-    justify-items: center;
+.container--centered {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     gap: 2rem;
-    padding-top: 10%;
+    height: 100vh;
 }
 
 
 /* tip calculator styles */
 .tip-calculator {
-    width: 100%;
+    width: min(100%, 750px);
+}
+
+.tip-form-container {
+    display: grid;
+    gap: 1rem;
 }
 
 .tip-form-container, .result-display-container {
-    display: grid;
-    gap: 1rem;
-    width: 100%;
+    flex: 1;
 }
 
 /* tip calc component styles */
@@ -156,25 +159,39 @@ body {
 }
 
 /* calculation results section */
-.results-display {
+.result-display-container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
+    padding: 2em;
 }
 
-.results-display__lbl {
+.result-display {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+}
+
+.result-display__lbl {
     font-size: 1rem;
 }
 
-.results-display__sublbl {
+.result-display__sublbl {
     font-size: 0.75rem;
     color: var(--grayish-cyan);
 }
 
-.results-display__ammount {
+.result-display__ammount {
     font-size: 2rem;
     color: var(--strong-cyan);
 }
 
 .reset-btn {
     margin-top: 2rem;
+}
+
+@media only screen and (width >= 750px) {
+    .result-display__ammount {
+        font-size: 2.5rem;
+    }
 }

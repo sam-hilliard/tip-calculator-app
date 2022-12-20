@@ -2,7 +2,7 @@ import React from 'react';
 
 import Input from '../Input/Input';
 import TipSelection from '../TipSelection/TipSelection';
-import ResultsDisplay from '../ResultsDisplay/ResultsDisplay';
+import ResultDisplay from '../ResultDisplay/ResultDisplay';
 
 // icons
 import dollarIcon from '../../assets/images/icon-dollar.svg';
@@ -18,16 +18,20 @@ export default function TipCalculator() {
         <Input label="Number of People" icon={personIcon} />
       </div>
       <div class="card card--accent result-display-container">
-        <ResultsDisplay 
-          label="Tip Amount"
-          sublabel="/ person"
-          amount={4.27}
-        />
-        <ResultsDisplay
-          label="Total"
-          sublabel="/ person"
-          amount={32.79}
-        />
+
+        <div className="result-display-container__calc-result-container">
+          <ResultDisplay 
+            label="Tip Amount"
+            sublabel="/ person"
+            amount={4.27}
+          />
+          <ResultDisplay
+            label="Total"
+            sublabel="/ person"
+            amount={32.79}
+          />
+        </div>
+
         <button className="btn btn--light reset-btn">RESET</button>
       </div>
     </div>

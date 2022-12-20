@@ -6,8 +6,10 @@ import Attribution from '../Attribution/Attribution';
 function App() {
   return (
     <div className="App">
-      <img src={logo} alt="Splitter" />
-      <TipCalculator />
+      <div className="container--centered">
+        <img src={logo} alt="Splitter" />
+        <TipCalculator />
+      </div>
       <Attribution />
     </div>
   );
