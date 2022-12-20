@@ -58,12 +58,13 @@ body {
 }
 
 .container--centered {
+    padding-top: 4.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     gap: 2rem;
-    height: 100vh;
+    height: 100%;
 }
 
 
@@ -194,4 +195,15 @@ body {
     .result-display__ammount {
         font-size: 2.5rem;
     }
+}
+
+.Attribution {
+    font-size: 1rem;
+    color: var(--light-grayish-cyan);
+    padding: 1rem;
+    text-align: center;
+}
+
+.Attribution > a {
+    color: var(--very-dark-cyan);
 }
