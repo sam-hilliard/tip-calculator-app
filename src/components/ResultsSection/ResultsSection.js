@@ -25,8 +25,8 @@ export default function ResultsSection() {
 
   function handleResetClick() {
     setTipParams({
-        bill: 0.00,
-        tipPercent: 0.00,
+        bill: 0,
+        tipPercent: 0,
         numPeople: 1,
     });
   }

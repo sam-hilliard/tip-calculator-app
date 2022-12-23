@@ -1,21 +1,28 @@
 import React from 'react'
-
-import { useState } from 'react';
+import { useTipParamsContext } from '../../contexts/TipParamsContext';
 
 export default function Input(props) {
 
-    const [inputVal, setInputVal] = useState('');
+    const [tipParams, setTipParams] = useTipParamsContext();
 
-    const handleChange = (e) => {
-        setInputVal(e.target.value);
+    const handleChange = (e) => {      
+        setTipParams(prevVal => {
+            return {
+                ...prevVal,
+                [e.target.name]: e.target.value
+            };
+        });
+
     };
 
     return (
         <div className="input-container">
             <label className="lbl input__lbl">{props.label}</label>
-            <input className="input" 
+            <input 
+                className="input"
+                name={props.name}
                 onChange={handleChange} 
-                value={inputVal}
+                value={tipParams[props.name]}
             />
             <img className="input__icon" src={props.icon} alt={props.iconAlt} />
         </div>

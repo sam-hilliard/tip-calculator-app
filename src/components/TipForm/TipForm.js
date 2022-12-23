@@ -10,9 +10,17 @@ import personIcon from '../../assets/images/icon-person.svg';
 export default function TipForm() {
   return (
     <div class="tip-form-container">
-        <Input label="Bill" icon={dollarIcon} />
+        <Input
+          name="bill" 
+          label="Bill" 
+          icon={dollarIcon} 
+        />
         <TipSelection />
-        <Input label="Number of People" icon={personIcon} />
+        <Input
+          name="numPeople"
+          label="Number of People" 
+          icon={personIcon} 
+        />
     </div>
   )
 }
