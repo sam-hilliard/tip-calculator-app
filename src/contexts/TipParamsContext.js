@@ -7,8 +7,8 @@ export function TipParamsContextProvider(props) {
 
     const [tipParams, setTipParams] = useState({
         bill: 0.00,
-        tip: 0.00,
-        numPeople: 0,
+        tipPercent: 0.00,
+        numPeople: 1,
     });
 
 
