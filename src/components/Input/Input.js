@@ -9,7 +9,7 @@ export default function Input(props) {
         setTipParams(prevVal => {
             return {
                 ...prevVal,
-                [e.target.name]: e.target.value
+                [e.target.name]: Number(e.target.value)
             };
         });
 

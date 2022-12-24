@@ -12,9 +12,11 @@ export default function ResultsSection() {
   const [total, setTotal] = useState(0.0);
 
   useEffect(() => {
+
+    console.log(tipParams);
     
-    const tip = tipParams.bill * tipParams.tipPercent;
-    const total = tipParams.bill + tip;
+    const tip = tipParams.bill * tipParams.tipPercent / tipParams.numPeople;
+    const total = tipParams.bill / tipParams.numPeople + tip;
 
     setTip(tip);
     setTotal(total);

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
+import { useTipParamsContext } from '../../contexts/TipParamsContext';
 
 export default function TipSelection() {
 
@@ -25,7 +26,8 @@ export default function TipSelection() {
             active: false
         }
     ]);
-    
+
+    const [, setTipParams] = useTipParamsContext();
 
     function handleClick(e) {
         const clickedVal = Number(e.target.value);
@@ -39,6 +41,9 @@ export default function TipSelection() {
         });
 
         setBtns(newBtns);
+        setTipParams(prevVal => {
+            return {...prevVal, tipPercent: clickedVal / 100};
+        });
     }
 
     return (
