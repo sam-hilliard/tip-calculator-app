@@ -7,23 +7,7 @@ import { useTipParamsContext } from '../../contexts/TipParamsContext';
 export default function ResultsSection() {
 
   const [tipParams, setTipParams] = useTipParamsContext();
-
-  const [tip, setTip] = useState(0.0);
-  const [total, setTotal] = useState(0.0);
-
-  useEffect(() => {
-
-    console.log(tipParams);
-    
-    const tip = tipParams.bill * tipParams.tipPercent / tipParams.numPeople;
-    const total = tipParams.bill / tipParams.numPeople + tip;
-
-    setTip(tip);
-    setTotal(total);
-
-    
-  }, [tipParams]);
-
+  const [tip, total] = useCalcTipTotal(tipParams);
 
   function handleResetClick() {
     setTipParams({
@@ -53,4 +37,22 @@ export default function ResultsSection() {
         <button onClick={handleResetClick} className="btn btn--light reset-btn">RESET</button>
       </div>
   )
+}
+
+function useCalcTipTotal(tipParams) {
+  const [tip, setTip] = useState(0.0);
+  const [total, setTotal] = useState(0.0);
+
+  useEffect(() => {
+    
+    const tip = tipParams.bill * tipParams.tipPercent / tipParams.numPeople;
+    const total = tipParams.bill / tipParams.numPeople + tip;
+
+    setTip(tip);
+    setTotal(total);
+
+    
+  }, [tipParams]);
+
+  return [tip, total]
 }
