@@ -10,6 +10,7 @@
 
     /* primary color */
     --strong-cyan: hsl(172, 67%, 45%);
+    --error-color: hsl(16, 100%, 50%);
 
     --br: 1rem;
     --br-sharp: 0.25rem;
@@ -67,7 +68,6 @@ body {
     height: 100%;
 }
 
-
 /* tip calculator styles */
 .tip-calculator {
     width: min(100%, 750px);
@@ -88,6 +88,9 @@ body {
     color: var(--grayish-cyan);
 }
 
+.lbl--error {
+    color: var(--error-color);
+}
 
 /* input */
 
@@ -99,8 +102,11 @@ body {
         "input";
 }
 
-.input__lbl {
+.input__lbl-container {
     grid-area: label;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .input, .input__icon {
@@ -115,13 +121,25 @@ body {
 .input {
     border: none;
     background-color: var(--very-light-grayish-cyan);
-    direction: rtl;
     padding: 0.5rem;
     color: var(--very-dark-cyan);
+    text-align: right;
 }
 
 .input:focus {
     outline: 2px solid var(--strong-cyan);
+}
+
+/* hiding input spinner */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number] {
+    -moz-appearance:textfield; /* Firefox */
 }
 
 /* tip selection section */
@@ -129,7 +147,7 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
-
+    direction: rtl;
     padding: 1rem 0;
 }
 
