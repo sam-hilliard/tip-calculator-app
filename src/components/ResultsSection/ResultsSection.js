@@ -48,8 +48,8 @@ function useCalcTipTotal(tipParams) {
     const tip = tipParams.bill * tipParams.tipPercent / tipParams.numPeople;
     const total = tipParams.bill / tipParams.numPeople + tip;
 
-    setTip(tip);
-    setTotal(total);
+    setTip(tip.toFixed(2));
+    setTotal(total.toFixed(2));
 
     
   }, [tipParams]);

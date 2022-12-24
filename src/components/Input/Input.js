@@ -9,7 +9,7 @@ export default function Input(props) {
 
     const handleChange = (e) => { 
         const name = e.target.name;
-        const value = Number(e.target.value);
+        const value = e.target.value;
 
         setTipParams(prevVal => {
             return {
