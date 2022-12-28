@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 
 import ResultDisplay from '../ResultDisplay/ResultDisplay';
-import { useTipParamsContext } from '../../contexts/TipParamsContext';
+import { useTipParamsContext, defaultVals } from '../../contexts/TipParamsContext';
 
 export default function ResultsSection() {
 
@@ -10,11 +10,7 @@ export default function ResultsSection() {
   const [tip, total] = useCalcTipTotal(tipParams);
 
   function handleResetClick() {
-    setTipParams({
-        bill: 0,
-        tipPercent: 0,
-        numPeople: 1,
-    });
+    setTipParams(defaultVals);
   }
   
 
@@ -53,6 +49,7 @@ function useCalcTipTotal(tipParams) {
 
     
   }, [tipParams]);
+
 
   return [tip, total]
 }

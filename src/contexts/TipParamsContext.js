@@ -3,13 +3,15 @@ import { createContext, useState, useContext } from 'react';
 
 const TipParamsContext = createContext();
 
+export const defaultVals = {
+    bill: 0,
+    tipPercent: 0,
+    numPeople: 1,
+}
+
 export function TipParamsContextProvider(props) {
 
-    const [tipParams, setTipParams] = useState({
-        bill: 0,
-        tipPercent: 0,
-        numPeople: 1,
-    });
+    const [tipParams, setTipParams] = useState(defaultVals);
 
 
     return ( 

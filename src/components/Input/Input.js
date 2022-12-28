@@ -9,15 +9,17 @@ export default function Input(props) {
 
     const handleChange = (e) => { 
         const name = e.target.name;
-        const value = e.target.value;
+        const value = Number(e.target.value);
+
+        const errMsg = validateInput(value, name === 'numPeople');
+        setErrorMsg(errMsg);
 
         setTipParams(prevVal => {
             return {
                 ...prevVal,
-                [name]: value
+                [name]: value,
             };
         });
-
     };
 
     return (
@@ -35,5 +37,18 @@ export default function Input(props) {
             />
             <img className="input__icon" src={props.icon} alt={props.iconAlt} />
         </div>
-    )
+    );
+}
+
+function validateInput(input, isNumPeople) {
+
+    if (isNumPeople && input === 0) {
+        return "Can't be zero";
+    }
+
+    if (input < 0) {
+        return "Invalid value";
+    }
+
+    return '';
 }
