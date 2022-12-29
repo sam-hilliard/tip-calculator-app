@@ -2,6 +2,8 @@ import React from 'react';
 import { useState } from 'react';
 import { useTipParamsContext } from '../../contexts/TipParamsContext';
 
+import CustomInput from '../CustomInput/CustomInput';
+
 export default function TipSelection() {
 
     const [btns, setBtns] = useState([
@@ -63,6 +65,7 @@ export default function TipSelection() {
                         </button>
                     );
                 })}
+                <CustomInput />
             </div>
         </div>
     );

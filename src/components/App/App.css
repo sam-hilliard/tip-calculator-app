@@ -70,7 +70,7 @@ body {
 
 /* tip calculator styles */
 .tip-calculator {
-    width: min(100%, 750px);
+    width: min(100%, 900px);
 }
 
 .tip-form-container {
@@ -144,14 +144,22 @@ input[type=number] {
 
 /* tip selection section */
 .tip-selection__btn-container {
+    padding: 1rem 0;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    direction: rtl;
-    padding: 1rem 0;
+    grid-template-rows: repeat(3, 1fr);
+    gap: 0.5em;
+}
+
+@media (width >= 800px) {
+    .tip-selection__btn-container {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
 }
 
 .btn {
+    display: block;
     border: none;
     color: var(--white);
     background-color: var(--very-dark-cyan);
@@ -175,6 +183,11 @@ input[type=number] {
 .btn--light:hover {
     --darker-primary: hsl(172, 67%, 35%);
     background-color: var(--darker-primary);
+}
+
+.custom-input {
+    grid-area: auto;
+    width: min(100%, 200px);
 }
 
 /* calculation results section */
