@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useTipParamsContext } from '../../contexts/TipParamsContext';
 
@@ -27,10 +27,10 @@ export default function TipSelection() {
         }
     ]);
 
-    const [customTip, setCustomTip] = useState('');
-
-    const [, setTipParams] = useTipParamsContext();
-
+    
+    const [tipParams, setTipParams] = useTipParamsContext();
+    const [customTip, setCustomTip] = useCustomTip(tipParams);
+    
     function handleClick(e) {
         const clickedVal = Number(e.target.value);
         let newBtns = btns.map(btn => {
@@ -100,4 +100,18 @@ export default function TipSelection() {
             </div>
         </div>
     );
+}
+
+function useCustomTip(tipParams) {
+    const [customTip, setCustomTip] = useState('');
+
+    // reset custom tip if the tip is zero (i.e. reset)
+    useEffect(() => {
+      if (tipParams.tipPercent === 0) {
+        setCustomTip('');
+      }
+    }, [tipParams]);
+    
+
+    return [customTip, setCustomTip];
 }
