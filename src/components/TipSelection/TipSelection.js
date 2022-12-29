@@ -91,7 +91,7 @@ export default function TipSelection() {
                 <input 
                     className="input custom-input"
                     type="number"
-                    min={0.01}
+                    min={1}
                     placeholder="Custom"
                     value={customTip}
                     onChange={handleChange}
