@@ -2,8 +2,6 @@ import React from 'react';
 import { useState } from 'react';
 import { useTipParamsContext } from '../../contexts/TipParamsContext';
 
-import CustomInput from '../CustomInput/CustomInput';
-
 export default function TipSelection() {
 
     const [btns, setBtns] = useState([
@@ -29,6 +27,8 @@ export default function TipSelection() {
         }
     ]);
 
+    const [customTip, setCustomTip] = useState('');
+
     const [, setTipParams] = useTipParamsContext();
 
     function handleClick(e) {
@@ -43,8 +43,31 @@ export default function TipSelection() {
         });
 
         setBtns(newBtns);
+        setCustomTip('');
         setTipParams(prevVal => {
             return {...prevVal, tipPercent: clickedVal / 100};
+        });
+    }
+
+    // reset all buttons to inactive state when custom input is focused
+    function handleFocus() {
+        let newBtns = btns.map(btn => {
+            return (
+                {
+                    ...btn,
+                    active: false
+                }
+            );
+        });
+        setBtns(newBtns);
+    }
+
+    function handleChange(e) {
+        setCustomTip(e.target.value);
+        const value = Number(e.target.value / 100);
+
+        setTipParams(prevVal => {
+            return {...prevVal, tipPercent: value};
         });
     }
 
@@ -65,7 +88,15 @@ export default function TipSelection() {
                         </button>
                     );
                 })}
-                <CustomInput />
+                <input 
+                    className="input custom-input"
+                    type="number"
+                    min={0.01}
+                    placeholder="Custom"
+                    value={customTip}
+                    onChange={handleChange}
+                    onFocus={handleFocus}
+                />
             </div>
         </div>
     );
